@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Methods of Arrays</h1>
+
+    <!-- Serve para concatenar, ou seja, juntar as coisas. Ex: -->
+    <strong>concat()</strong>
+
+    <script>
+        var arr1 = new Array("Red", 10, 20.4);
+        var arr2 = Array("Blue", 12, 30.3, arr1);
+
+        arr1 = arr1.concat(arr2);
+
+        document.write("<p>concat(): " + arr1.length + "</p>");
+
+        console.log("concat(): ");
+        console.log(arr1);
+
+    </script>
+
+    <!-- Lista uma String, pega os valores do Array e vai listar String. Ex: -->
+    <strong>join()</strong>
+
+    <script>
+        var arr1 = new Array("Red", 10, 20.4);
+        var arr2 = Array("Blue", 12, 30.3, arr1);
+
+        arr1 = arr1.concat(arr2);
+
+        var list = arr1.join(" - "); // Pegando os valores dos Array e separando por -
+
+        document.write("<p>join(): " + list + "</p>");
+
+        console.log("join(): ");
+        console.log(list);
+
+    </script>
+
+    <!-- Serve para adicionar elementos no final do Array -->
+    <strong>push()</strong>
+
+    <script>
+        var arr3 = new Array("Red", 10, 20.4);
+
+        arr3.push("New element");
+
+        var list = arr3.join(" - ");
+
+        document.write("<p>push(): " + arr3 + "</p>");
+
+        console.log("push(): ");
+        console.log(arr3);
+
+    </script>
+
+
+    <!-- Remove o último elemento do Array -->
+    <strong>pop()</strong>
+
+    <script>
+
+        arr3.pop();
+
+        var list = arr3.join(" - ");
+
+        document.write("<p>pop(): " + arr3 + "</p>");
+
+        console.log("pop(): ");
+        console.log(arr3);
+
+    </script>
+
+    <!-- Remove o primeiro elemento do Array -->
+    <strong>shift()</strong>
+
+    <script>
+
+        arr3.shift();
+
+        var list = arr3.join(" - ");
+
+        document.write("<p>shift(): " + arr3 + "</p>");
+
+        console.log("shift(): ");
+        console.log(arr3);
+
+    </script>
+
+    <!-- Adiciona um elemento no início do Array -->
+    <strong>unshift()</strong>
+
+    <script>
+
+        arr1.unshift("New Element");
+
+        var list = arr1.join(" - ");
+
+        document.write("<p>unshift(): " + arr1 + "</p>");
+
+        console.log("unshift(): ");
+        console.log(arr1);
+
+    </script>
+
+    <!-- Pega uma parte do Array e transforma em um novo Array -->
+    <strong>slice()</strong>
+
+    <script>
+
+        var array1 = new Array("Red", 10, 20.4, "New element");
+        var newArray = array1.slice(1,4);
+        /* Precisa ser um número maior do tamanho do Array, para ele poder pegar até o último elemento,
+         * por isso o 4 ao invés de 3 */
+
+        var list = newArray.join(" - ");
+
+        document.write("<p>slice(): " + newArray + "</p>");
+
+        console.log("slice(): ");
+        console.log(newArray);
+
+    </script>
+
+    <!-- Escolhe uma determinada área com índice inicial e final,
+        então ele adiciona/substitui valores nesse índice que for escolhido -->
+    <strong>splice()</strong>
+
+    <script>
+
+        var array1 = new Array("Red", 10, 20.4, "New element");
+        array1.splice(1,2, "A", "B", "C", "D");
+        /* Primeiro se coloca a posição(índice) que quero substituir e logo em seguida, se coloca os valores
+         * que irão substituir os anteriores */
+
+        var list = array1.join(" - ");
+
+        document.write("<p>splice(): " + array1 + "</p>");
+
+        console.log("splice(): ");
+        console.log(array1);
+
+    </script>
+
+    <!-- Inverte os dados do Array, último por primeiro, primeiro por último -->
+    <strong>reverse()</strong>
+
+    <script>
+
+        var array1 = new Array("A", "B", "C", "D");
+        array1.reverse();
+
+        var list = array1.join(" - ");
+
+        document.write("<p>reverse(): " + array1 + "</p>");
+
+        console.log("reverse(): ");
+        console.log(array1);
+
+    </script>
+</body>
+</html>
