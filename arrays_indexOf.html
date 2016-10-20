@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays</title>
+</head>
+<body>
+
+    <h1>Search</h1>
+
+    <!-- Para fazer uma busca dentro de um Array a partir do começo desse Array.
+        Por default é encontrado o primeiro elemento que contenha o parametro que foi passado
+        e retona o índice do elemento encontrado.
+        Obs: A busca é feita pela palavra inteira e não apenas por uma letra, caso sejam palavras -->
+    <strong>indexOf()</strong>
+
+    <script>
+
+        var arr1 = ["orange", "blue", "red", "blue", "green"];
+        var ret = arr1.indexOf("blue");
+
+        document.write("<p>Ret: " + ret + " value = " + arr1[ret] + "</p>");
+        console.log("indexOf()");
+        console.log(ret);
+
+    </script>
+
+    <!-- Define um index inicial para ele percorrer a partir do começo do Array.
+        Ex:("blue", 2), ele irá contar a partir do index 2,
+        então, trará o segundo "blue" e não o primeiro, pois ele esta buscando a partir do
+        elemento na posição 2 do Array -->
+    <strong>indexOf(searchElement[, fromIndex])</strong>
+
+    <script>
+
+        var arr1 = ["orange", "blue", "red", "blue", "green"];
+        var ret = arr1.indexOf("blue", 2);
+
+        document.write("<p>Ret: " + ret + " value = " + arr1[ret] + "</p>");
+        console.log("indexOf()");
+        console.log(ret);
+
+    </script>
+
+    <!-- Faz a mesma coisa que o default do indexOf(), porém começa a partir do final do Array. -->
+    <strong>lastIndexOf()</strong>
+
+    <script>
+
+        var arr1 = ["orange", "blue", "red", "blue", "green"];
+        var ret = arr1.lastIndexOf("blue");
+
+        document.write("<p>Ret: " + ret + " value = " + arr1[ret] + "</p>");
+        console.log("lastIndexOf()");
+        console.log(ret);
+
+    </script>
+
+    <!-- Define um index inicial para ele percorrer a partir do final do Array.
+        (Oposto do metodo indexOf(searchElement[, fromIndex])) -->
+    <strong>lastIndexOf(searchElement[, fromIndex])</strong>
+
+    <script>
+
+        var arr1 = ["orange", "blue", "red", "blue", "green"];
+        var ret = arr1.lastIndexOf("blue", 2);
+
+        document.write("<p>Ret: " + ret + " value = " + arr1[ret] + "</p>");
+        console.log("lastIndexOf()");
+        console.log(ret);
+
+    </script>
+
+    <strong>Search in practice</strong>
+    <br/>
+    <input type="text" id="search">
+    <button onclick="search();">search</button>
+    <br/>
+
+    <strong>Result: </strong>
+    <br/>
+    <span id="result"></span>
+
+    <script>
+
+        /* OBS: split() função que irá auxiliar em como eu quero quebrar/separar esse Array em pedaços,
+            foi escolhido por espaços em branco, então em cada espaço em branco, será pego o elemento,
+            com isso, haverá um novo Array, apenas com esses elementos que foram separados pelo split() */
+
+        function search(){
+
+            var arr = ["a content of a blog", "news of an article", "recipe for a cake", "programming tips"];
+            var search = document.getElementById("search").value;
+            var testKey = null;
+            var result = "";
+
+            /* Primeiro for, pega o Array de frases e o transforma em um Array de palavras e armazena essas palavras em outro Array */
+            for(var key in arr){
+
+                /* Armazena nesse auxArr as palavras que ele desmembra do Array de frases */
+                var auxArr = arr[key].split(" ");
+
+                /* A partir das palavras do Array, eu posso procurar um elemento especifico usando o indexOf() */
+                for(var key2 in auxArr){
+
+                    /* Esse if, traz os elementos que existirem, por isso o -1, que significa que não foi encontrado */
+                    if(auxArr.indexOf(search) > -1){
+
+                        /* Esse segundo if, serve para ele trazer apenas uma vez a frase, independente se ele achar duas vezes o mesmo elemento */
+                        if(testKey != key){
+                            testKey = key;
+
+                            /* Atribui nesse result o que ele entrcontrar do arr[key] */
+                            result += "<p>" + arr[key] + "</p>";
+                        }
+                    }
+                }
+            }
+
+            /* Para imprimir o que tiver no elemento result */
+            document.getElementById("result").innerHTML = result;
+
+        }
+
+
+
+    </script>
+
+    <br/><br/>
+
+</body>
+</html>
